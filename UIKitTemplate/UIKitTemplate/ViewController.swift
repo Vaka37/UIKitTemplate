@@ -4,9 +4,12 @@
 import UIKit
 
 // class ViewController
-class ViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("print")
-    }
+final class ViewController: UIViewController {
+    // MARK: - Private propeties
+
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
+
+    // MARK: - Private methods
 }
