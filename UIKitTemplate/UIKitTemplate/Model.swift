@@ -2,10 +2,17 @@
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
+import UIKit
 
 /// Model
-struct Model {
-    // MARK: - publick properties
+final class Model {
+    // MARK: - Publick propeties
 
-    var text: String
+    var userText = " "
+
+    // MARK: - Publick methods
+///Метод который разворачивает то что пользователь ввел
+    func reversText(text: String) {
+        userText = String(text.reversed())
+    }
 }

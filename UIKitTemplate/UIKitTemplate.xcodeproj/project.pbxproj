@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		D58B434D2B7194600084A3DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B434C2B7194600084A3DC /* AppDelegate.swift */; };
 		D58B434F2B7194600084A3DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B434E2B7194600084A3DC /* SceneDelegate.swift */; };
-		D58B43512B7194600084A3DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B43502B7194600084A3DC /* ViewController.swift */; };
+		D58B43512B7194600084A3DC /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58B43502B7194600084A3DC /* StartViewController.swift */; };
 		D58B43562B7194620084A3DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D58B43552B7194620084A3DC /* Assets.xcassets */; };
-		D5DAEC8F2B750D9300475383 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DAEC8E2B750D9300475383 /* Controller.swift */; };
-		D5DAEC912B750DDA00475383 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DAEC902B750DDA00475383 /* Model.swift */; };
+		D5DAEC8F2B750D9300475383 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DAEC8E2B750D9300475383 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D58B43492B7194600084A3DC /* UIKitTemplate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKitTemplate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58B434C2B7194600084A3DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D58B434E2B7194600084A3DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D58B43502B7194600084A3DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D58B43502B7194600084A3DC /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		D58B43552B7194620084A3DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D58B435A2B7194620084A3DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D5DAEC8E2B750D9300475383 /* Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
-		D5DAEC902B750DDA00475383 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		D5DAEC8E2B750D9300475383 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +56,8 @@
 			children = (
 				D58B434C2B7194600084A3DC /* AppDelegate.swift */,
 				D58B434E2B7194600084A3DC /* SceneDelegate.swift */,
-				D58B43502B7194600084A3DC /* ViewController.swift */,
-				D5DAEC8E2B750D9300475383 /* Controller.swift */,
-				D5DAEC902B750DDA00475383 /* Model.swift */,
+				D58B43502B7194600084A3DC /* StartViewController.swift */,
+				D5DAEC8E2B750D9300475383 /* Model.swift */,
 				D58B43552B7194620084A3DC /* Assets.xcassets */,
 				D58B435A2B7194620084A3DC /* Info.plist */,
 			);
@@ -181,11 +178,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5DAEC912B750DDA00475383 /* Model.swift in Sources */,
-				D58B43512B7194600084A3DC /* ViewController.swift in Sources */,
+				D58B43512B7194600084A3DC /* StartViewController.swift in Sources */,
 				D58B434D2B7194600084A3DC /* AppDelegate.swift in Sources */,
 				D58B434F2B7194600084A3DC /* SceneDelegate.swift in Sources */,
-				D5DAEC8F2B750D9300475383 /* Controller.swift in Sources */,
+				D5DAEC8F2B750D9300475383 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
