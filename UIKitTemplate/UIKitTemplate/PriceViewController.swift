@@ -6,15 +6,18 @@ import UIKit
 
 /// Вью для выставления счета
 final class PriceViewController: UIViewController {
+    var login = ""
+
     // MARK: - Private methods
 
     /// переход на заключительный контроллер
     private func goToExitVC() {
-        guard let priceVC = storyboard?.instantiateViewController(identifier: "exitVC") as? ExitViewController else {
+        guard let exitVC = storyboard?.instantiateViewController(identifier: "exitVC") as? ExitViewController else {
             return
         }
-        priceVC.modalPresentationStyle = .fullScreen
-        present(priceVC, animated: true)
+        exitVC.login = login
+        exitVC.modalPresentationStyle = .fullScreen
+        present(exitVC, animated: true)
     }
 
     /// вызов алерта что бы оплатить

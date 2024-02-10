@@ -27,7 +27,7 @@
                                     <color key="baseForegroundColor" systemColor="systemBackgroundColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="s9y-Tm-Gh1" kind="show" id="9Qe-1v-gyr"/>
+                                    <action selector="saveUserInfo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tMo-o8-nlJ"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="kofe" translatesAutoresizingMaskIntoConstraints="NO" id="66e-gM-rHK">
@@ -88,7 +88,7 @@
                                 <rect key="frame" x="319" y="524" width="58" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="eye.fill" catalog="system">
+                                <buttonConfiguration key="configuration" style="plain" image="eye.slash.fill" catalog="system">
                                     <color key="baseForegroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -243,7 +243,7 @@
             <objects>
                 <viewController storyboardIdentifier="priceVC" id="htN-JY-jN8" customClass="PriceViewController" customModule="UIKitTemplate" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5FG-S4-YbI">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="price" translatesAutoresizingMaskIntoConstraints="NO" id="XcJ-Yv-sVh">
@@ -366,10 +366,28 @@
                                 <rect key="frame" x="0.0" y="255" width="375" height="375"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C8z-vx-HcX">
+                                <rect key="frame" x="44" y="84" width="47" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="xmark" catalog="system">
+                                    <color key="baseForegroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Электронный чек отправили Вам на почту " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yB-6w-6gz">
+                                <rect key="frame" x="46" y="127" width="300" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7Xd-gh-laU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="thanksLabel" destination="5yB-6w-6gz" id="0xJ-XJ-5o5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cm8-L1-0B5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -396,10 +414,11 @@
     </scenes>
     <resources>
         <image name="chevron.right" catalog="system" width="97" height="128"/>
-        <image name="eye.fill" catalog="system" width="128" height="80"/>
+        <image name="eye.slash.fill" catalog="system" width="128" height="96"/>
         <image name="kofe" width="175" height="164"/>
         <image name="lis" width="375" height="375"/>
         <image name="price" width="335" height="280"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

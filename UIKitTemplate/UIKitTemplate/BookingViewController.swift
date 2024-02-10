@@ -6,6 +6,8 @@ import UIKit
 
 /// вью контроллер ддля бронирования столика
 final class BookingViewController: UIViewController {
+    var login = ""
+
     // MARK: - IBOutlets
 
     @IBOutlet var priceButton: UIButton!
@@ -21,6 +23,7 @@ final class BookingViewController: UIViewController {
         guard let priceVC = storyboard?.instantiateViewController(identifier: "priceVC") as? PriceViewController else {
             return
         }
+        priceVC.login = login
         navigationController?.pushViewController(priceVC, animated: true)
     }
 }
