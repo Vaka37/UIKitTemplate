@@ -43,7 +43,7 @@ final class DetailViewController: UIViewController {
         createSliderVolume()
         playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
     }
-
+///создание слайдера трека
    private func createSlider() {
         durationSlider.minimumValue = 0.0
         durationSlider.maximumValue = 100.0

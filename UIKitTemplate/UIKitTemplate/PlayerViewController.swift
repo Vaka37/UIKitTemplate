@@ -5,7 +5,7 @@ import AVFoundation
 import UIKit
 
 // стартовый экран приложения
-class PlayerViewController: UIViewController {
+final class PlayerViewController: UIViewController {
     //MARK: - IBAction
     @IBAction func playTrack(_ sender: Any) {
         guard let detailVC = storyboard?.instantiateViewController(identifier: "detailVC") as? DetailViewController
