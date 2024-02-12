@@ -4,29 +4,39 @@
 import AVFoundation
 import Foundation
 import UIKit
-///вью с детальной информацией о треке
+
+/// вью с детальной информацией о треке
 final class DetailViewController: UIViewController {
-    //MARK: - @IBOutlet
-    ///кнопка стоп/ плей
+    // MARK: - @IBOutlet
+
+    @IBOutlet var nameTrackLabel: UILabel!
+    /// кнопка стоп/ плей
     @IBOutlet var playButton: UIButton!
-    ///трек сллайдер
+    /// трек сллайдер
     @IBOutlet var durationSlider: UISlider!
-    ///сслайдер ггромкости
+    /// сслайдер ггромкости
     @IBOutlet var volumeSlider: UISlider! {
         didSet {
             volumeSlider.transform = CGAffineTransform(rotationAngle: CGFloat(-M_PI_2))
         }
     }
-//MARK: - private propites
-    ///наш плеер
+
+    // MARK: - private propites
+
+    private var track = ""
+    /// наш плеер
     private var player = AVAudioPlayer()
-//MARK: - Lifi cicly
+
+    // MARK: - Lifi cicly
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createVisualComponents()
     }
-    //MARK: - publick propites
-///создание плеера
+
+    // MARK: - publick propites
+
+    /// создание плеера
     func createPlayer(music: String) {
         do {
             if let audioPath = Bundle.main.path(forResource: music, ofType: "mp3") {
@@ -36,15 +46,20 @@ final class DetailViewController: UIViewController {
             print("Error")
         }
         player.play()
+        track = music
     }
-//MARK: - private propites
+
+    // MARK: - private propites
+
     private func createVisualComponents() {
         createSlider()
         createSliderVolume()
         playButton.setImage(UIImage(systemName: "pause.circle"), for: .normal)
+        nameTrackLabel.text = track
     }
-///создание слайдера трека
-   private func createSlider() {
+
+    /// создание слайдера трека
+    private func createSlider() {
         durationSlider.minimumValue = 0.0
         durationSlider.maximumValue = 100.0
         durationSlider.maximumValue = Float(player.duration)
@@ -68,7 +83,8 @@ final class DetailViewController: UIViewController {
             player.currentTime = TimeInterval(sender.value)
         }
     }
-///создание слайдера громкости
+
+    /// создание слайдера громкости
     private func createSliderVolume() {
         volumeSlider.value = 100
         volumeSlider.addTarget(self, action: #selector(sliderVolumeMethod), for: .valueChanged)
@@ -77,7 +93,9 @@ final class DetailViewController: UIViewController {
     @objc func sliderVolumeMethod() {
         player.volume = volumeSlider.value
     }
-//MARK: - IBAction
+
+    // MARK: - IBAction
+
     @IBAction func dismiss(_ sender: Any) {
         dismiss(animated: true)
     }
@@ -94,9 +112,11 @@ final class DetailViewController: UIViewController {
 
     @IBAction func backwordTrack(_ sender: Any) {
         createPlayer(music: "Slava Marlow - Camry 3.5")
+        nameTrackLabel.text = track
     }
 
     @IBAction func forwardTrack(_ sender: Any) {
         createPlayer(music: "АлСми - Мадам")
+        nameTrackLabel.text = track
     }
 }

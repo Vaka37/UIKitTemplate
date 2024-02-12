@@ -1,4 +1,4 @@
-// ViewController.swift
+// PlayerViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import AVFoundation
@@ -6,7 +6,8 @@ import UIKit
 
 // стартовый экран приложения
 final class PlayerViewController: UIViewController {
-    //MARK: - IBAction
+    // MARK: - IBAction
+
     @IBAction func playTrack(_ sender: Any) {
         guard let detailVC = storyboard?.instantiateViewController(identifier: "detailVC") as? DetailViewController
         else {
