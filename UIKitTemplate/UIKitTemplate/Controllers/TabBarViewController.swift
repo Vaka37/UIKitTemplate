@@ -38,7 +38,8 @@ final class TabBarController: UITabBarController {
     private func makeLentaViewController() -> UIViewController {
         let lentaViewController = UINavigationController(rootViewController: LentaViewController())
         lentaViewController.tabBarItem = UITabBarItem(title: Constants.lentaTitle, image: Constants.lentaIcon, tag: 0)
-        lentaViewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        lentaViewController.navigationBar
+            .largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         lentaViewController.view.backgroundColor = .white
         UIBarButtonItem.appearance().tintColor = UIColor.black
         return lentaViewController
@@ -46,7 +47,8 @@ final class TabBarController: UITabBarController {
 
     private func makeNotificationViewController() -> UIViewController {
         let notificationViewController = UINavigationController(rootViewController: NotificationViewController())
-        notificationViewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        notificationViewController.navigationBar
+            .largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         notificationViewController.tabBarItem = UITabBarItem(
             title: Constants.notificationTitle,
             image: Constants.notificationIcon,
@@ -58,8 +60,13 @@ final class TabBarController: UITabBarController {
 
     private func makeUserProfileViewController() -> UIViewController {
         let userProfileViewController = UINavigationController(rootViewController: UserProfileViewController())
-        userProfileViewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        userProfileViewController.tabBarItem = UITabBarItem(title: Constants.userTitle, image: Constants.userProfileIcon, tag: 2)
+        userProfileViewController.navigationBar
+            .largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        userProfileViewController.tabBarItem = UITabBarItem(
+            title: Constants.userTitle,
+            image: Constants.userProfileIcon,
+            tag: 2
+        )
         userProfileViewController.view.backgroundColor = .white
         return userProfileViewController
     }
