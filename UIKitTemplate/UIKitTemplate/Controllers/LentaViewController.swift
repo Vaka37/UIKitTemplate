@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Лента постов
+/// Контроллер постов
 final class LentaViewController: UIViewController {
     // MARK: - Constants
 

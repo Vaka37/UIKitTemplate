@@ -16,12 +16,12 @@ final class NotificationButtonCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    private lazy var avatar: UIImageView = {
+    private lazy var avatarImageView: UIImageView = {
         let image = UIImageView()
         return image
     }()
 
-    private lazy var discription: UILabel = {
+    private lazy var discriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 12)
@@ -44,16 +44,16 @@ final class NotificationButtonCell: UITableViewCell {
     // MARK: - Public Properties
 
     func configureCell(post: NotificationCellButton) {
-        avatar.image = UIImage(named: post.avatar)
+        avatarImageView.image = UIImage(named: post.avatar)
         let text = "\(post.userLogin) \(post.postDiscription) \(post.dateComent)"
-        discription.attributedText = text.setFont(UIFont.boldSystemFont(ofSize: 12), ofSubstring: post.userLogin)
+        discriptionLabel.attributedText = text.setFont(UIFont.boldSystemFont(ofSize: 12), ofSubstring: post.userLogin)
         subscribeButton.setTitle(post.isPressed ? Constants.unSubscribe : Constants.subscribe, for: .normal)
         subscribeButton.backgroundColor = post.isPressed ? .white : .systemBlue
         subscribeButton.setTitleColor(post.isPressed ? .gray : .white, for: .normal)
         subscribeButton.layer.borderColor = post.isPressed ? UIColor.gray.cgColor : UIColor.systemBlue.cgColor
         isSubscribe = post.isPressed
-        contentView.addSubview(avatar)
-        contentView.addSubview(discription)
+        contentView.addSubview(avatarImageView)
+        contentView.addSubview(discriptionLabel)
         contentView.addSubview(subscribeButton)
         makeAnchor()
     }
@@ -79,26 +79,26 @@ final class NotificationButtonCell: UITableViewCell {
 
 extension NotificationButtonCell {
     private func makeAvatarAnchor() {
-        avatar.translatesAutoresizingMaskIntoConstraints = false
-        avatar.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true
-        avatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        avatar.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        avatar.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true
+        avatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
 
     private func makeComenteedImageAnchor() {
         subscribeButton.translatesAutoresizingMaskIntoConstraints = false
-        subscribeButton.centerYAnchor.constraint(equalTo: avatar.centerYAnchor).isActive = true
+        subscribeButton.centerYAnchor.constraint(equalTo: avatarImageView.centerYAnchor).isActive = true
         subscribeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         subscribeButton.widthAnchor.constraint(equalToConstant: 140).isActive = true
         subscribeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 
     private func makeDiscriptionAnchor() {
-        discription.translatesAutoresizingMaskIntoConstraints = false
-        discription.topAnchor.constraint(equalTo: avatar.topAnchor).isActive = true
-        discription.trailingAnchor.constraint(equalTo: subscribeButton.leadingAnchor, constant: -24).isActive = true
-        discription.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 7).isActive = true
-        discription.heightAnchor.constraint(equalToConstant: 55).isActive = true
+        discriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        discriptionLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor).isActive = true
+        discriptionLabel.trailingAnchor.constraint(equalTo: subscribeButton.leadingAnchor, constant: -24).isActive = true
+        discriptionLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7).isActive = true
+        discriptionLabel.heightAnchor.constraint(equalToConstant: 55).isActive = true
     }
 }

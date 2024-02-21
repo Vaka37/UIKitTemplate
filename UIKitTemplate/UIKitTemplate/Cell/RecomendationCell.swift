@@ -48,12 +48,12 @@ final class RecomendationCell: UITableViewCell {
 
     }()
 
-    private lazy var avatarUser: UIImageView = {
+    private lazy var avatarUserImageView: UIImageView = {
         let image = UIImageView()
         return image
     }()
 
-    private lazy var loginUser: UILabel = {
+    private lazy var loginUserLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 10)
@@ -72,19 +72,19 @@ final class RecomendationCell: UITableViewCell {
         return button
     }()
 
-    private lazy var overlayViewSecond: UIView = {
+    private lazy var overlaySecondView: UIView = {
         let overlayView = UIView()
         overlayView.backgroundColor = .white
         return overlayView
 
     }()
 
-    private lazy var avatarUserSecond: UIImageView = {
+    private lazy var avatarUserSecondImageView: UIImageView = {
         let image = UIImageView()
         return image
     }()
 
-    private lazy var loginUserSecond: UILabel = {
+    private lazy var loginUserSecondLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 10)
@@ -93,7 +93,7 @@ final class RecomendationCell: UITableViewCell {
         return label
     }()
 
-    private lazy var subscribeButtonSecond: UIButton = {
+    private lazy var subscribeSecondButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
@@ -106,21 +106,21 @@ final class RecomendationCell: UITableViewCell {
     // MARK: - Public Properties
 
     func confiUI(data: [Recomendation]) {
-        avatarUser.image = UIImage(named: data[0].avatar)
-        loginUser.text = data[0].login
-        avatarUserSecond.image = UIImage(named: data[1].avatar)
-        loginUserSecond.text = data[1].login
+        avatarUserImageView.image = UIImage(named: data[0].avatar)
+        loginUserLabel.text = data[0].login
+        avatarUserSecondImageView.image = UIImage(named: data[1].avatar)
+        loginUserSecondLabel.text = data[1].login
         addSubview(contentScrollView)
         contentScrollView.addSubview(overlayView)
         contentScrollView.addSubview(recomentadionLabel)
         contentScrollView.addSubview(allButton)
-        contentScrollView.addSubview(overlayViewSecond)
-        overlayView.addSubview(avatarUser)
-        overlayView.addSubview(loginUser)
+        contentScrollView.addSubview(overlaySecondView)
+        overlayView.addSubview(avatarUserImageView)
+        overlayView.addSubview(loginUserLabel)
         overlayView.addSubview(subscribeButton)
-        overlayViewSecond.addSubview(avatarUserSecond)
-        overlayViewSecond.addSubview(loginUserSecond)
-        overlayViewSecond.addSubview(subscribeButtonSecond)
+        overlaySecondView.addSubview(avatarUserSecondImageView)
+        overlaySecondView.addSubview(loginUserSecondLabel)
+        overlaySecondView.addSubview(subscribeSecondButton)
         makeAnchor()
     }
 
@@ -157,11 +157,11 @@ extension RecomendationCell {
     }
 
     private func createSecondOverlayViewAnchor() {
-        overlayViewSecond.translatesAutoresizingMaskIntoConstraints = false
-        overlayViewSecond.leadingAnchor.constraint(equalTo: overlayView.trailingAnchor, constant: 20).isActive = true
-        overlayViewSecond.centerYAnchor.constraint(equalTo: contentScrollView.centerYAnchor).isActive = true
-        overlayViewSecond.widthAnchor.constraint(equalToConstant: 185).isActive = true
-        overlayViewSecond.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        overlaySecondView.translatesAutoresizingMaskIntoConstraints = false
+        overlaySecondView.leadingAnchor.constraint(equalTo: overlayView.trailingAnchor, constant: 20).isActive = true
+        overlaySecondView.centerYAnchor.constraint(equalTo: contentScrollView.centerYAnchor).isActive = true
+        overlaySecondView.widthAnchor.constraint(equalToConstant: 185).isActive = true
+        overlaySecondView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
 
     private func createRecomendationLabelAnchor() {
@@ -181,52 +181,52 @@ extension RecomendationCell {
     }
 
     private func createAvatarUserAnchor() {
-        avatarUser.translatesAutoresizingMaskIntoConstraints = false
-        avatarUser.topAnchor.constraint(equalTo: overlayView.topAnchor, constant: 15).isActive = true
-        avatarUser.centerXAnchor.constraint(equalTo: overlayView.centerXAnchor).isActive = true
-        avatarUser.widthAnchor.constraint(equalToConstant: 115).isActive = true
-        avatarUser.heightAnchor.constraint(equalToConstant: 115).isActive = true
+        avatarUserImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarUserImageView.topAnchor.constraint(equalTo: overlayView.topAnchor, constant: 15).isActive = true
+        avatarUserImageView.centerXAnchor.constraint(equalTo: overlayView.centerXAnchor).isActive = true
+        avatarUserImageView.widthAnchor.constraint(equalToConstant: 115).isActive = true
+        avatarUserImageView.heightAnchor.constraint(equalToConstant: 115).isActive = true
     }
 
     private func createLoginUserAnchor() {
-        loginUser.translatesAutoresizingMaskIntoConstraints = false
-        loginUser.centerXAnchor.constraint(equalTo: avatarUser.centerXAnchor).isActive = true
-        loginUser.topAnchor.constraint(equalTo: avatarUser.bottomAnchor, constant: 5).isActive = true
-        loginUser.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        loginUser.heightAnchor.constraint(equalToConstant: 12).isActive = true
+        loginUserLabel.translatesAutoresizingMaskIntoConstraints = false
+        loginUserLabel.centerXAnchor.constraint(equalTo: avatarUserImageView.centerXAnchor).isActive = true
+        loginUserLabel.topAnchor.constraint(equalTo: avatarUserImageView.bottomAnchor, constant: 5).isActive = true
+        loginUserLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        loginUserLabel.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
 
     private func createSubscribeAnchor() {
         subscribeButton.translatesAutoresizingMaskIntoConstraints = false
         subscribeButton.leadingAnchor.constraint(equalTo: overlayView.leadingAnchor, constant: 10).isActive = true
-        subscribeButton.topAnchor.constraint(equalTo: loginUser.bottomAnchor, constant: 9).isActive = true
+        subscribeButton.topAnchor.constraint(equalTo: loginUserLabel.bottomAnchor, constant: 9).isActive = true
         subscribeButton.trailingAnchor.constraint(equalTo: overlayView.trailingAnchor, constant: -10).isActive = true
         subscribeButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 
     private func createSecondAvatarUserAnchor() {
-        avatarUserSecond.translatesAutoresizingMaskIntoConstraints = false
-        avatarUserSecond.topAnchor.constraint(equalTo: overlayViewSecond.topAnchor, constant: 15).isActive = true
-        avatarUserSecond.centerXAnchor.constraint(equalTo: overlayViewSecond.centerXAnchor).isActive = true
-        avatarUserSecond.widthAnchor.constraint(equalToConstant: 115).isActive = true
-        avatarUserSecond.heightAnchor.constraint(equalToConstant: 115).isActive = true
+        avatarUserSecondImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarUserSecondImageView.topAnchor.constraint(equalTo: overlaySecondView.topAnchor, constant: 15).isActive = true
+        avatarUserSecondImageView.centerXAnchor.constraint(equalTo: overlaySecondView.centerXAnchor).isActive = true
+        avatarUserSecondImageView.widthAnchor.constraint(equalToConstant: 115).isActive = true
+        avatarUserSecondImageView.heightAnchor.constraint(equalToConstant: 115).isActive = true
     }
 
     private func createSecondLoginUserAnchor() {
-        loginUserSecond.translatesAutoresizingMaskIntoConstraints = false
-        loginUserSecond.centerXAnchor.constraint(equalTo: avatarUserSecond.centerXAnchor).isActive = true
-        loginUserSecond.topAnchor.constraint(equalTo: avatarUserSecond.bottomAnchor, constant: 5).isActive = true
-        loginUserSecond.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        loginUserSecond.heightAnchor.constraint(equalToConstant: 12).isActive = true
+        loginUserSecondLabel.translatesAutoresizingMaskIntoConstraints = false
+        loginUserSecondLabel.centerXAnchor.constraint(equalTo: avatarUserSecondImageView.centerXAnchor).isActive = true
+        loginUserSecondLabel.topAnchor.constraint(equalTo: avatarUserSecondImageView.bottomAnchor, constant: 5).isActive = true
+        loginUserSecondLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        loginUserSecondLabel.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
 
     private func createSecondSubscribeButtonAnchor() {
-        subscribeButtonSecond.translatesAutoresizingMaskIntoConstraints = false
-        subscribeButtonSecond.leadingAnchor.constraint(equalTo: overlayViewSecond.leadingAnchor, constant: 10)
+        subscribeSecondButton.translatesAutoresizingMaskIntoConstraints = false
+        subscribeSecondButton.leadingAnchor.constraint(equalTo: overlaySecondView.leadingAnchor, constant: 10)
             .isActive = true
-        subscribeButtonSecond.topAnchor.constraint(equalTo: loginUserSecond.bottomAnchor, constant: 9).isActive = true
-        subscribeButtonSecond.trailingAnchor.constraint(equalTo: overlayViewSecond.trailingAnchor, constant: -10)
+        subscribeSecondButton.topAnchor.constraint(equalTo: loginUserSecondLabel.bottomAnchor, constant: 9).isActive = true
+        subscribeSecondButton.trailingAnchor.constraint(equalTo: overlaySecondView.trailingAnchor, constant: -10)
             .isActive = true
-        subscribeButtonSecond.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        subscribeSecondButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
     }
 }

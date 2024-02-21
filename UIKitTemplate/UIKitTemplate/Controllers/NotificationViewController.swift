@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Экран с уведомлениями
+/// Контроллер с уведомлениями
 final class NotificationViewController: UIViewController {
     // MARK: - RowsType
 
@@ -85,6 +85,8 @@ extension NotificationViewController {
 
 extension NotificationViewController: UITableViewDelegate {}
 
+
+// MARK: - UITableViewDataSource
 extension NotificationViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         55

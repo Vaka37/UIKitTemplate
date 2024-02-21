@@ -40,7 +40,7 @@ final class ContentCell: UITableViewCell {
         return avatarSendImage
     }()
 
-    private lazy var postPictureImageViewTwo: UIImageView = {
+    private lazy var postPictureSecondImageView: UIImageView = {
         let avatarSendImage = UIImageView()
         avatarSendImage.image = UIImage.hills
         return avatarSendImage
@@ -60,13 +60,13 @@ final class ContentCell: UITableViewCell {
         return scroll
     }()
 
-    private lazy var favouritesImage: UIImageView = {
+    private lazy var favouritesImageView: UIImageView = {
         let image = UIImageView()
         image.image = Constants.favouritesImage
         return image
     }()
 
-    private lazy var userProfileAvatar: UIImageView = {
+    private lazy var userProfileAvatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = Constants.userAvatar
         return imageView
@@ -91,7 +91,7 @@ final class ContentCell: UITableViewCell {
         userPostAvatarImageView.image = UIImage(named: post.avatarName)
         sendPostLoginLabel.text = post.login
         postPictureImageView.image = UIImage(named: post.postImagesName.first ?? "")
-        postPictureImageViewTwo.image = UIImage(named: post.postImagesName.last ?? "")
+        postPictureSecondImageView.image = UIImage(named: post.postImagesName.last ?? "")
         let textString = "\(post.login) \(post.postDiscription)"
         discriptionsLabel.attributedText = textString.setFont(
             UIFont.boldSystemFont(ofSize: 12),
@@ -126,11 +126,11 @@ final class ContentCell: UITableViewCell {
         createLabel(label: sendPostLoginLabel, color: .black, sizeFont: UIFont.boldSystemFont(ofSize: 12))
         createIconView(imageView: pointImage, image: Constants.pointImage)
         contentScrollView.addSubview(postPictureImageView)
-        contentScrollView.addSubview(postPictureImageViewTwo)
+        contentScrollView.addSubview(postPictureSecondImageView)
         createIconView(imageView: likeImage, image: Constants.likeImage)
         createIconView(imageView: commentImage, image: Constants.commentImage)
         createIconView(imageView: sendImage, image: Constants.sendImage)
-        createIconView(imageView: favouritesImage, image: Constants.favouritesImage)
+        createIconView(imageView: favouritesImageView, image: Constants.favouritesImage)
         createLabel(label: countLike, color: .black, sizeFont: UIFont.boldSystemFont(ofSize: 12))
         createLabel(label: discriptionsLabel, color: .black, sizeFont: UIFont.systemFont(ofSize: 12))
         createLabel(
@@ -139,7 +139,7 @@ final class ContentCell: UITableViewCell {
             color: .systemGray,
             sizeFont: .systemFont(ofSize: 10)
         )
-        contentView.addSubview(userProfileAvatar)
+        contentView.addSubview(userProfileAvatarImageView)
         createLabel(
             label: comentOn,
             title: Constants.comentLabel,
@@ -215,12 +215,12 @@ extension ContentCell {
     }
 
     private func makePostPictureTwoAnchor() {
-        postPictureImageViewTwo.translatesAutoresizingMaskIntoConstraints = false
-        postPictureImageViewTwo.topAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: 10)
+        postPictureSecondImageView.translatesAutoresizingMaskIntoConstraints = false
+        postPictureSecondImageView.topAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: 10)
             .isActive = true
-        postPictureImageViewTwo.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        postPictureImageViewTwo.leadingAnchor.constraint(equalTo: postPictureImageView.trailingAnchor).isActive = true
-        postPictureImageViewTwo.heightAnchor.constraint(equalToConstant: 239).isActive = true
+        postPictureSecondImageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
+        postPictureSecondImageView.leadingAnchor.constraint(equalTo: postPictureImageView.trailingAnchor).isActive = true
+        postPictureSecondImageView.heightAnchor.constraint(equalToConstant: 239).isActive = true
     }
 
     private func makeLikeImageAnchor() {
@@ -256,16 +256,16 @@ extension ContentCell {
     }
 
     private func makeFavouritesImageAnchor() {
-        favouritesImage.translatesAutoresizingMaskIntoConstraints = false
-        favouritesImage.centerYAnchor.constraint(equalTo: commentImage.centerYAnchor).isActive = true
-        favouritesImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -9).isActive = true
-        favouritesImage.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        favouritesImage.widthAnchor.constraint(equalToConstant: 14).isActive = true
+        favouritesImageView.translatesAutoresizingMaskIntoConstraints = false
+        favouritesImageView.centerYAnchor.constraint(equalTo: commentImage.centerYAnchor).isActive = true
+        favouritesImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -9).isActive = true
+        favouritesImageView.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        favouritesImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
     }
 
     private func makeCountLikeAnchor() {
         countLike.translatesAutoresizingMaskIntoConstraints = false
-        countLike.topAnchor.constraint(equalTo: favouritesImage.bottomAnchor, constant: 9).isActive = true
+        countLike.topAnchor.constraint(equalTo: favouritesImageView.bottomAnchor, constant: 9).isActive = true
         countLike.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
     }
 
@@ -278,25 +278,25 @@ extension ContentCell {
     }
 
     private func makeAvatarUserAnchor() {
-        userProfileAvatar.translatesAutoresizingMaskIntoConstraints = false
-        userProfileAvatar.topAnchor.constraint(equalTo: discriptionsLabel.bottomAnchor, constant: 4).isActive = true
-        userProfileAvatar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
-        userProfileAvatar.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        userProfileAvatar.widthAnchor.constraint(equalToConstant: 20).isActive = true
+        userProfileAvatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        userProfileAvatarImageView.topAnchor.constraint(equalTo: discriptionsLabel.bottomAnchor, constant: 4).isActive = true
+        userProfileAvatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        userProfileAvatarImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        userProfileAvatarImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
     }
 
     private func makeComentOnAnchor() {
         comentOn.translatesAutoresizingMaskIntoConstraints = false
-        comentOn.centerYAnchor.constraint(equalTo: userProfileAvatar.centerYAnchor).isActive = true
-        comentOn.leadingAnchor.constraint(equalTo: userProfileAvatar.trailingAnchor, constant: 3).isActive = true
+        comentOn.centerYAnchor.constraint(equalTo: userProfileAvatarImageView.centerYAnchor).isActive = true
+        comentOn.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.trailingAnchor, constant: 3).isActive = true
         comentOn.heightAnchor.constraint(equalToConstant: 15).isActive = true
         comentOn.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
 
     private func makeDateLabelAnchor() {
         datePost.translatesAutoresizingMaskIntoConstraints = false
-        datePost.topAnchor.constraint(equalTo: userProfileAvatar.bottomAnchor, constant: 4).isActive = true
-        datePost.leadingAnchor.constraint(equalTo: userProfileAvatar.leadingAnchor).isActive = true
+        datePost.topAnchor.constraint(equalTo: userProfileAvatarImageView.bottomAnchor, constant: 4).isActive = true
+        datePost.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.leadingAnchor).isActive = true
         datePost.heightAnchor.constraint(equalToConstant: 15).isActive = true
         datePost.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }

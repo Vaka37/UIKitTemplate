@@ -13,13 +13,13 @@ final class NotificationPictureCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    private lazy var avatar: UIImageView = {
+    private lazy var avatarImageView: UIImageView = {
         let image = UIImageView()
 
         return image
     }()
 
-    private lazy var discription: UILabel = {
+    private lazy var discriptionLabel: UILabel = {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont.systemFont(ofSize: 12)
@@ -27,7 +27,7 @@ final class NotificationPictureCell: UITableViewCell {
         return label
     }()
 
-    private lazy var comentedImage: UIImageView = {
+    private lazy var comentedImageView: UIImageView = {
         let image = UIImageView()
 
         return image
@@ -36,13 +36,13 @@ final class NotificationPictureCell: UITableViewCell {
     // MARK: - Public Properties
 
     func configureCell(post: NotificationCellPicture) {
-        avatar.image = UIImage(named: post.image)
+        avatarImageView.image = UIImage(named: post.image)
         let text = "\(post.userLogin) \(post.postDiscription) \(post.dateComent)"
-        discription.attributedText = text.setFont(UIFont.boldSystemFont(ofSize: 12), ofSubstring: post.userLogin)
-        comentedImage.image = UIImage(named: post.postPicture)
-        contentView.addSubview(avatar)
-        contentView.addSubview(discription)
-        contentView.addSubview(comentedImage)
+        discriptionLabel.attributedText = text.setFont(UIFont.boldSystemFont(ofSize: 12), ofSubstring: post.userLogin)
+        comentedImageView.image = UIImage(named: post.postPicture)
+        contentView.addSubview(avatarImageView)
+        contentView.addSubview(discriptionLabel)
+        contentView.addSubview(comentedImageView)
         makeAnchor()
     }
 
@@ -59,26 +59,26 @@ final class NotificationPictureCell: UITableViewCell {
 
 extension NotificationPictureCell {
     private func makeAvatarAnchor() {
-        avatar.translatesAutoresizingMaskIntoConstraints = false
-        avatar.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true
-        avatar.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
-        avatar.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        avatar.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true
+        avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
 
     private func makeComenteedImageAnchor() {
-        comentedImage.translatesAutoresizingMaskIntoConstraints = false
-        comentedImage.topAnchor.constraint(equalTo: avatar.topAnchor).isActive = true
-        comentedImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
-        comentedImage.widthAnchor.constraint(equalToConstant: 40).isActive = true
-        comentedImage.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        comentedImageView.translatesAutoresizingMaskIntoConstraints = false
+        comentedImageView.topAnchor.constraint(equalTo: avatarImageView.topAnchor).isActive = true
+        comentedImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
+        comentedImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        comentedImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
     }
 
     private func makeDiscriptionAnchor() {
-        discription.translatesAutoresizingMaskIntoConstraints = false
-        discription.topAnchor.constraint(equalTo: comentedImage.topAnchor).isActive = true
-        discription.trailingAnchor.constraint(equalTo: comentedImage.leadingAnchor, constant: -24).isActive = true
-        discription.leadingAnchor.constraint(equalTo: avatar.trailingAnchor, constant: 7).isActive = true
-        discription.bottomAnchor.constraint(equalTo: comentedImage.bottomAnchor).isActive = true
+        discriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        discriptionLabel.topAnchor.constraint(equalTo: comentedImageView.topAnchor).isActive = true
+        discriptionLabel.trailingAnchor.constraint(equalTo: comentedImageView.leadingAnchor, constant: -24).isActive = true
+        discriptionLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7).isActive = true
+        discriptionLabel.bottomAnchor.constraint(equalTo: comentedImageView.bottomAnchor).isActive = true
     }
 }

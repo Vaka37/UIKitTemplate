@@ -3,5 +3,5 @@
 
 import UIKit
 
-/// Экран с инфформацией о пользователе
+/// Контроллер с инфформацией о пользователе
 final class UserProfileViewController: UIViewController {}
