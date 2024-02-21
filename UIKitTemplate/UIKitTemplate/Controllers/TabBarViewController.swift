@@ -36,31 +36,31 @@ final class TabBarController: UITabBarController {
     }
 
     private func makeLentaViewController() -> UIViewController {
-        let viewController = UINavigationController(rootViewController: LentaViewController())
-        viewController.tabBarItem = UITabBarItem(title: Constants.lentaTitle, image: Constants.lentaIcon, tag: 0)
-        viewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        viewController.view.backgroundColor = .white
+        let lentaViewController = UINavigationController(rootViewController: LentaViewController())
+        lentaViewController.tabBarItem = UITabBarItem(title: Constants.lentaTitle, image: Constants.lentaIcon, tag: 0)
+        lentaViewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        lentaViewController.view.backgroundColor = .white
         UIBarButtonItem.appearance().tintColor = UIColor.black
-        return viewController
+        return lentaViewController
     }
 
     private func makeNotificationViewController() -> UIViewController {
-        let viewController = UINavigationController(rootViewController: NotificationViewController())
-        viewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        viewController.tabBarItem = UITabBarItem(
+        let notificationViewController = UINavigationController(rootViewController: NotificationViewController())
+        notificationViewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        notificationViewController.tabBarItem = UITabBarItem(
             title: Constants.notificationTitle,
             image: Constants.notificationIcon,
             tag: 1
         )
-        viewController.view.backgroundColor = .white
-        return viewController
+        notificationViewController.view.backgroundColor = .white
+        return notificationViewController
     }
 
     private func makeUserProfileViewController() -> UIViewController {
-        let viewController = UINavigationController(rootViewController: UserProfileViewController())
-        viewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        viewController.tabBarItem = UITabBarItem(title: Constants.userTitle, image: Constants.userProfileIcon, tag: 2)
-        viewController.view.backgroundColor = .white
-        return viewController
+        let userProfileViewController = UINavigationController(rootViewController: UserProfileViewController())
+        userProfileViewController.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        userProfileViewController.tabBarItem = UITabBarItem(title: Constants.userTitle, image: Constants.userProfileIcon, tag: 2)
+        userProfileViewController.view.backgroundColor = .white
+        return userProfileViewController
     }
 }
