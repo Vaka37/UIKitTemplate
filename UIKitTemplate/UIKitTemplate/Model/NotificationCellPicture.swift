@@ -3,11 +3,11 @@
 
 import Foundation
 
-/// Модель ячейки с фотокартчой
+/// Ячейка с фотокартчой
 struct NotificationCellPicture {
-    ///  аватар
+    ///  Аватар
     let image: String
-    //// Логин пользователя оставившего коментарий
+    /// Логин пользователя оставившего коментарий
     let userLogin: String
     /// Описание коментария
     let postDiscription: String

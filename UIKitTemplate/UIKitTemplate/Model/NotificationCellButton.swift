@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// Модель ячейки с кнопкой
+/// Ячейки с кнопкой
 struct NotificationCellButton {
     /// Аватар
     let avatar: String

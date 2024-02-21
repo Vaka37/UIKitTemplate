@@ -1,11 +1,10 @@
-// NotificationButtonCell.swift
+// NotificationButtonViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import UIKit
 
 /// Ячейка для уведомлений с кнопкой
-final class NotificationButtonCell: UITableViewCell {
+final class NotificationButtonViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -77,7 +76,7 @@ final class NotificationButtonCell: UITableViewCell {
 
 // MARK: - Layoyt
 
-extension NotificationButtonCell {
+extension NotificationButtonViewCell {
     private func makeAvatarAnchor() {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true

@@ -1,10 +1,10 @@
-// NotificationPictureCell.swift
+// NotificationPictureViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Ячейка для уведомлений с картинкой
-final class NotificationPictureCell: UITableViewCell {
+final class NotificationPictureViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -57,7 +57,7 @@ final class NotificationPictureCell: UITableViewCell {
 
 // MARK: - Layoyt
 
-extension NotificationPictureCell {
+extension NotificationPictureViewCell {
     private func makeAvatarAnchor() {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 3).isActive = true

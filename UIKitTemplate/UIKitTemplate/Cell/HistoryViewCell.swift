@@ -1,10 +1,10 @@
-// HistoryCell.swift
+// HistoryViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// ячейка для создания историий
-final class HistoryCell: UITableViewCell {
+/// Ячейка историий
+final class HistoryViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -58,7 +58,7 @@ final class HistoryCell: UITableViewCell {
 
 // MARK: - Layoyt
 
-extension HistoryCell {
+extension HistoryViewCell {
     private func makeYouHistoryLabelAnchor(view: UIView, from: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -3).isActive = true

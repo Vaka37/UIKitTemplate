@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Контроллер постов
+/// Экран постов
 final class LentaViewController: UIViewController {
     // MARK: - Constants
 
@@ -18,9 +18,13 @@ final class LentaViewController: UIViewController {
     // MARK: - RowsType
 
     enum RowsType {
+        /// Кейс с истрориями
         case stories
+        /// Кейс с первым постом
         case firstPost
+        /// Кейс с рекомендациями
         case recomend
+        /// Кейс с остальными постами
         case otherPost
     }
 
@@ -28,7 +32,7 @@ final class LentaViewController: UIViewController {
 
     private lazy var refreshControll: UIRefreshControl = {
         let refresh = UIRefreshControl()
-        refresh.addTarget(self, action: #selector(reloadTable), for: .valueChanged)
+        refresh.addTarget(self, action: #selector(reloadTableView), for: .valueChanged)
         return refresh
     }()
 
@@ -36,9 +40,9 @@ final class LentaViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(HistoryCell.self, forCellReuseIdentifier: Constants.historyCellIdentefire)
-        tableView.register(ContentCell.self, forCellReuseIdentifier: Constants.contenCellIdentefire)
-        tableView.register(RecomendationCell.self, forCellReuseIdentifier: Constants.recomendationIdentefire)
+        tableView.register(HistoryViewCell.self, forCellReuseIdentifier: Constants.historyCellIdentefire)
+        tableView.register(ContentPostViewCell.self, forCellReuseIdentifier: Constants.contenCellIdentefire)
+        tableView.register(RecomendationViewCell.self, forCellReuseIdentifier: Constants.recomendationIdentefire)
         tableView.separatorStyle = .none
         tableView.allowsSelection = false
         tableView.showsVerticalScrollIndicator = false
@@ -49,7 +53,7 @@ final class LentaViewController: UIViewController {
     // MARK: - Private Properties
 
     private let rmLinkStorage = RMLinkStorage()
-    private let typeCell: [RowsType] = [.stories, .firstPost, .recomend, .otherPost]
+    private let rowTypes: [RowsType] = [.stories, .firstPost, .recomend, .otherPost]
 
     // MARK: - Life Cycle
 
@@ -82,7 +86,7 @@ final class LentaViewController: UIViewController {
         makeConstraitTableView()
     }
 
-    @objc private func reloadTable() {
+    @objc private func reloadTableView() {
         contentTableView.reloadData()
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             self.refreshControll.endRefreshing()
@@ -104,13 +108,13 @@ extension LentaViewController {
 
 // MARK: - UITableViewDataSource
 
-extension LentaViewController: UITableViewDataSource {
+extension LentaViewController: UITableViewDataSource, UITableViewDelegate {
     func numberOfSections(in tableView: UITableView) -> Int {
-        typeCell.count
+        rowTypes.count
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let typeCell = typeCell[indexPath.section]
+        let typeCell = rowTypes[indexPath.section]
 
         switch typeCell {
         case .stories:
@@ -125,7 +129,7 @@ extension LentaViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let typeCell = typeCell[section]
+        let typeCell = rowTypes[section]
         switch typeCell {
         case .stories, .firstPost, .recomend:
             return 1
@@ -135,14 +139,14 @@ extension LentaViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let typeCell = typeCell[indexPath.section]
+        let typeCell = rowTypes[indexPath.section]
 
         switch typeCell {
         case .stories:
             if let storieCell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.historyCellIdentefire,
                 for: indexPath
-            ) as? HistoryCell {
+            ) as? HistoryViewCell {
                 storieCell.setupCell(stories: rmLinkStorage.stories)
             }
 
@@ -150,21 +154,21 @@ extension LentaViewController: UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.contenCellIdentefire,
                 for: indexPath
-            ) as? ContentCell {
+            ) as? ContentPostViewCell {
                 cell.setupCell(post: rmLinkStorage.posts[indexPath.row])
             }
         case .recomend:
             if let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.recomendationIdentefire,
                 for: indexPath
-            ) as? RecomendationCell {
-                cell.confiUI(data: rmLinkStorage.recomend)
+            ) as? RecomendationViewCell {
+                cell.confiUI(recomendatios: rmLinkStorage.recomend)
             }
         case .otherPost:
             if let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.contenCellIdentefire,
                 for: indexPath
-            ) as? ContentCell {
+            ) as? ContentPostViewCell {
                 cell.setupCell(post: rmLinkStorage.otherPost[indexPath.row])
             }
         }
@@ -172,7 +176,3 @@ extension LentaViewController: UITableViewDataSource {
         return UITableViewCell()
     }
 }
-
-// MARK: - UITableViewDelegate
-
-extension LentaViewController: UITableViewDelegate {}

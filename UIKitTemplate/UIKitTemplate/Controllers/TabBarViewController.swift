@@ -3,8 +3,8 @@
 
 import UIKit
 
-// Tab Bar Controller
-final class TabBarController: UITabBarController {
+// Таб Бар контроллер
+final class MainTabBarController: UITabBarController {
     // MARK: - Constants
 
     private enum Constants {

@@ -3,18 +3,21 @@
 
 import UIKit
 
-/// Контроллер с уведомлениями
+/// Экран с уведомлениями
 final class NotificationViewController: UIViewController {
     // MARK: - RowsType
 
     enum RowsType {
+        /// Кейс с картинками
         case notificationPicture
+        /// Кейс с кнопкой
         case notificationButton
     }
 
     // MARK: - Constants
 
     private enum Constants {
+        static let title = "Уведомления"
         static let notificationPictureCellIdentefire = "NotificationPicture"
         static let notificationButtonCellIdentefire = "NotificationButton"
         static let headeSectionOne = "Сегодня"
@@ -28,11 +31,11 @@ final class NotificationViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(
-            NotificationPictureCell.self,
+            NotificationPictureViewCell.self,
             forCellReuseIdentifier: Constants.notificationPictureCellIdentefire
         )
         tableView.register(
-            NotificationButtonCell.self,
+            NotificationButtonViewCell.self,
             forCellReuseIdentifier: Constants.notificationButtonCellIdentefire
         )
         tableView.separatorStyle = .none
@@ -57,13 +60,13 @@ final class NotificationViewController: UIViewController {
 
     // MARK: - Private Methods
 
-    private func configNavigation() {
-        title = "Уведомления"
+    private func configureNavigation() {
+        title = Constants.title
         navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     private func configureUI() {
-        configNavigation()
+        configureNavigation()
         view.addSubview(notificationTableView)
         makeConstraitTableView()
     }
@@ -83,7 +86,18 @@ extension NotificationViewController {
 
 // MARK: - UITableViewDelegate
 
-extension NotificationViewController: UITableViewDelegate {}
+extension NotificationViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
+        let label = UILabel()
+        label.frame = CGRect(x: 12, y: 0, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
+        label.text = section == 0 ? Constants.headeSectionOne : Constants.headerSectionTwo
+        label.font = .boldSystemFont(ofSize: 14)
+        label.textColor = .black
+        headerView.addSubview(label)
+        return headerView
+    }
+}
 
 // MARK: - UITableViewDataSource
 
@@ -113,28 +127,17 @@ extension NotificationViewController: UITableViewDataSource {
             if let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.notificationPictureCellIdentefire,
                 for: indexPath
-            ) as? NotificationPictureCell {
+            ) as? NotificationPictureViewCell {
                 cell.configureCell(post: rMLinkStorage.cellPicture[indexPath.row])
             }
         case .notificationButton:
             if let cell = tableView.dequeueReusableCell(
                 withIdentifier: Constants.notificationButtonCellIdentefire,
                 for: indexPath
-            ) as? NotificationButtonCell {
+            ) as? NotificationButtonViewCell {
                 cell.configureCell(post: rMLinkStorage.cellButton[indexPath.row])
             }
         }
         return UITableViewCell()
-    }
-
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 30))
-        let label = UILabel()
-        label.frame = CGRect(x: 12, y: 0, width: headerView.frame.width - 10, height: headerView.frame.height - 10)
-        label.text = section == 0 ? Constants.headeSectionOne : Constants.headerSectionTwo
-        label.font = .boldSystemFont(ofSize: 14)
-        label.textColor = .black
-        headerView.addSubview(label)
-        return headerView
     }
 }

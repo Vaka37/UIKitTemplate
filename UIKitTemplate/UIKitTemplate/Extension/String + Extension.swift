@@ -1,12 +1,15 @@
 // String + Extension.swift
 // Copyright © RoadMap. All rights reserved.
 
-import Foundation
 import UIKit
 
 /// Расширенние для валлидации строки
-public extension String {
-    /// Рассширение для изменение шрифта
+ extension String {
+    /// Расширение для изменение шрифта
+     /// - Parameters:
+     /// - font: шрифт который надо использовать
+     /// - ofSubstring: иизменяемое значение 
+     /// - Returns: модифицированнуюю строку
     func setFont(_ font: UIFont, ofSubstring substring: String) -> NSMutableAttributedString {
         let range = (self as NSString).range(of: substring)
         let attributedString = NSMutableAttributedString(string: self)

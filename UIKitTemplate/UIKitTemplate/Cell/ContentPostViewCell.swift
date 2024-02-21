@@ -1,10 +1,10 @@
-// ContentCell.swift
+// ContentPostViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// ячейка с контентом
-final class ContentCell: UITableViewCell {
+/// Ячейка с контентом
+final class ContentPostViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -30,9 +30,9 @@ final class ContentCell: UITableViewCell {
 
     private lazy var sendPostLoginLabel = UILabel()
     private lazy var discriptionsLabel = UILabel()
-    private lazy var countLike = UILabel()
-    private lazy var comentOn = UILabel()
-    private lazy var datePost = UILabel()
+    private lazy var countLikeLabel = UILabel()
+    private lazy var comentOnLabel = UILabel()
+    private lazy var datePostLabel = UILabel()
 
     private lazy var postPictureImageView: UIImageView = {
         let avatarSendImage = UIImageView()
@@ -46,14 +46,14 @@ final class ContentCell: UITableViewCell {
         return avatarSendImage
     }()
 
-    private lazy var pointImage = UIImageView()
-    private lazy var likeImage = UIImageView()
-    private lazy var commentImage = UIImageView()
-    private lazy var sendImage = UIImageView()
+    private lazy var pointImageView = UIImageView()
+    private lazy var likeImageView = UIImageView()
+    private lazy var commentImageView = UIImageView()
+    private lazy var sendImageView = UIImageView()
 
     private lazy var contentScrollView: UIScrollView = {
         let scroll = UIScrollView()
-        scroll.contentSize = CGSize(width: frame.size.width * CGFloat(contentPost.count), height: 239)
+        scroll.contentSize = CGSize(width: frame.size.width * CGFloat(contentPosts.count), height: 239)
         scroll.showsHorizontalScrollIndicator = false
         scroll.isPagingEnabled = true
         scroll.delegate = self
@@ -72,9 +72,9 @@ final class ContentCell: UITableViewCell {
         return imageView
     }()
 
-    private lazy var pageControll: UIPageControl = {
+    private lazy var imagePageControll: UIPageControl = {
         let pageview = UIPageControl()
-        pageview.numberOfPages = contentPost.count
+        pageview.numberOfPages = contentPosts.count
         pageview.currentPage = 0
         pageview.tintColor = UIColor.red
         pageview.pageIndicatorTintColor = UIColor.gray
@@ -86,7 +86,7 @@ final class ContentCell: UITableViewCell {
     // MARK: - Public Properties
 
     func setupCell(post: Post) {
-        contentPost.append(contentsOf: post.postImagesName)
+        contentPosts.append(contentsOf: post.postImagesName)
         configureUI()
         userPostAvatarImageView.image = UIImage(named: post.avatarName)
         sendPostLoginLabel.text = post.login
@@ -97,12 +97,12 @@ final class ContentCell: UITableViewCell {
             UIFont.boldSystemFont(ofSize: 12),
             ofSubstring: post.login
         )
-        countLike.text = "\(Constants.likeTitle) \(post.likeCount)"
+        countLikeLabel.text = "\(Constants.likeTitle) \(post.likeCount)"
     }
 
     // MARK: - Private Properties
 
-    private lazy var contentPost: [String] = []
+    private lazy var contentPosts: [String] = []
 
     // MARK: - Private Methods
 
@@ -124,29 +124,29 @@ final class ContentCell: UITableViewCell {
         contentView.addSubview(contentScrollView)
         contentView.addSubview(userPostAvatarImageView)
         createLabel(label: sendPostLoginLabel, color: .black, sizeFont: UIFont.boldSystemFont(ofSize: 12))
-        createIconView(imageView: pointImage, image: Constants.pointImage)
+        createIconView(imageView: pointImageView, image: Constants.pointImage)
         contentScrollView.addSubview(postPictureImageView)
         contentScrollView.addSubview(postPictureSecondImageView)
-        createIconView(imageView: likeImage, image: Constants.likeImage)
-        createIconView(imageView: commentImage, image: Constants.commentImage)
-        createIconView(imageView: sendImage, image: Constants.sendImage)
+        createIconView(imageView: likeImageView, image: Constants.likeImage)
+        createIconView(imageView: commentImageView, image: Constants.commentImage)
+        createIconView(imageView: sendImageView, image: Constants.sendImage)
         createIconView(imageView: favouritesImageView, image: Constants.favouritesImage)
-        createLabel(label: countLike, color: .black, sizeFont: UIFont.boldSystemFont(ofSize: 12))
+        createLabel(label: countLikeLabel, color: .black, sizeFont: UIFont.boldSystemFont(ofSize: 12))
         createLabel(label: discriptionsLabel, color: .black, sizeFont: UIFont.systemFont(ofSize: 12))
         createLabel(
-            label: datePost,
+            label: datePostLabel,
             title: Constants.datePostText,
             color: .systemGray,
             sizeFont: .systemFont(ofSize: 10)
         )
         contentView.addSubview(userProfileAvatarImageView)
         createLabel(
-            label: comentOn,
+            label: comentOnLabel,
             title: Constants.comentLabel,
             color: .systemGray,
             sizeFont: .systemFont(ofSize: 10)
         )
-        contentView.addSubview(pageControll)
+        contentView.addSubview(imagePageControll)
         createAnchor()
     }
 
@@ -172,7 +172,7 @@ final class ContentCell: UITableViewCell {
 
 // MARK: - Layoyt
 
-extension ContentCell {
+extension ContentPostViewCell {
     private func makeAvatarAnchor() {
         userPostAvatarImageView.translatesAutoresizingMaskIntoConstraints = false
         userPostAvatarImageView.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
@@ -189,12 +189,12 @@ extension ContentCell {
     }
 
     private func makeUserLoginAnchor() {
-        pointImage.translatesAutoresizingMaskIntoConstraints = false
-        pointImage.centerYAnchor.constraint(equalTo: userPostAvatarImageView.centerYAnchor).isActive = true
-        pointImage.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7)
+        pointImageView.translatesAutoresizingMaskIntoConstraints = false
+        pointImageView.centerYAnchor.constraint(equalTo: userPostAvatarImageView.centerYAnchor).isActive = true
+        pointImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7)
             .isActive = true
-        pointImage.heightAnchor.constraint(equalToConstant: 3).isActive = true
-        pointImage.widthAnchor.constraint(equalToConstant: 14).isActive = true
+        pointImageView.heightAnchor.constraint(equalToConstant: 3).isActive = true
+        pointImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
     }
 
     private func makeContentScrollViewAnchor() {
@@ -225,54 +225,54 @@ extension ContentCell {
     }
 
     private func makeLikeImageAnchor() {
-        likeImage.translatesAutoresizingMaskIntoConstraints = false
-        likeImage.topAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: 12).isActive = true
-        likeImage.leadingAnchor.constraint(equalTo: userPostAvatarImageView.leadingAnchor).isActive = true
-        likeImage.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        likeImage.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        likeImageView.translatesAutoresizingMaskIntoConstraints = false
+        likeImageView.topAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: 12).isActive = true
+        likeImageView.leadingAnchor.constraint(equalTo: userPostAvatarImageView.leadingAnchor).isActive = true
+        likeImageView.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        likeImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
     }
 
     private func makeCommentImageAnchor() {
-        commentImage.translatesAutoresizingMaskIntoConstraints = false
-        commentImage.centerYAnchor.constraint(equalTo: likeImage.centerYAnchor).isActive = true
-        commentImage.leadingAnchor.constraint(equalTo: likeImage.trailingAnchor, constant: 14).isActive = true
-        commentImage.heightAnchor.constraint(equalToConstant: 18).isActive = true
-        commentImage.widthAnchor.constraint(equalToConstant: 18).isActive = true
+        commentImageView.translatesAutoresizingMaskIntoConstraints = false
+        commentImageView.centerYAnchor.constraint(equalTo: likeImageView.centerYAnchor).isActive = true
+        commentImageView.leadingAnchor.constraint(equalTo: likeImageView.trailingAnchor, constant: 14).isActive = true
+        commentImageView.heightAnchor.constraint(equalToConstant: 18).isActive = true
+        commentImageView.widthAnchor.constraint(equalToConstant: 18).isActive = true
     }
 
     private func makeSendImageAnchor() {
-        sendImage.translatesAutoresizingMaskIntoConstraints = false
-        sendImage.centerYAnchor.constraint(equalTo: commentImage.centerYAnchor).isActive = true
-        sendImage.leadingAnchor.constraint(equalTo: commentImage.trailingAnchor, constant: 14).isActive = true
-        sendImage.heightAnchor.constraint(equalToConstant: 17).isActive = true
-        sendImage.widthAnchor.constraint(equalToConstant: 17).isActive = true
+        sendImageView.translatesAutoresizingMaskIntoConstraints = false
+        sendImageView.centerYAnchor.constraint(equalTo: commentImageView.centerYAnchor).isActive = true
+        sendImageView.leadingAnchor.constraint(equalTo: commentImageView.trailingAnchor, constant: 14).isActive = true
+        sendImageView.heightAnchor.constraint(equalToConstant: 17).isActive = true
+        sendImageView.widthAnchor.constraint(equalToConstant: 17).isActive = true
     }
 
     private func makePageControllAnchor() {
-        pageControll.translatesAutoresizingMaskIntoConstraints = false
-        pageControll.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        pageControll.centerYAnchor.constraint(equalTo: sendImage.centerYAnchor).isActive = true
-        pageControll.widthAnchor.constraint(equalToConstant: 130).isActive = true
-        pageControll.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        imagePageControll.translatesAutoresizingMaskIntoConstraints = false
+        imagePageControll.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        imagePageControll.centerYAnchor.constraint(equalTo: sendImageView.centerYAnchor).isActive = true
+        imagePageControll.widthAnchor.constraint(equalToConstant: 130).isActive = true
+        imagePageControll.heightAnchor.constraint(equalToConstant: 20).isActive = true
     }
 
     private func makeFavouritesImageAnchor() {
         favouritesImageView.translatesAutoresizingMaskIntoConstraints = false
-        favouritesImageView.centerYAnchor.constraint(equalTo: commentImage.centerYAnchor).isActive = true
+        favouritesImageView.centerYAnchor.constraint(equalTo: commentImageView.centerYAnchor).isActive = true
         favouritesImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -9).isActive = true
         favouritesImageView.heightAnchor.constraint(equalToConstant: 18).isActive = true
         favouritesImageView.widthAnchor.constraint(equalToConstant: 14).isActive = true
     }
 
     private func makeCountLikeAnchor() {
-        countLike.translatesAutoresizingMaskIntoConstraints = false
-        countLike.topAnchor.constraint(equalTo: favouritesImageView.bottomAnchor, constant: 9).isActive = true
-        countLike.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
+        countLikeLabel.translatesAutoresizingMaskIntoConstraints = false
+        countLikeLabel.topAnchor.constraint(equalTo: favouritesImageView.bottomAnchor, constant: 9).isActive = true
+        countLikeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
     }
 
     private func makeDiscriprionsAnchor() {
         discriptionsLabel.translatesAutoresizingMaskIntoConstraints = false
-        discriptionsLabel.topAnchor.constraint(equalTo: countLike.bottomAnchor, constant: 6).isActive = true
+        discriptionsLabel.topAnchor.constraint(equalTo: countLikeLabel.bottomAnchor, constant: 6).isActive = true
         discriptionsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         discriptionsLabel.heightAnchor.constraint(equalToConstant: 30).isActive = true
         discriptionsLabel.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
@@ -288,27 +288,28 @@ extension ContentCell {
     }
 
     private func makeComentOnAnchor() {
-        comentOn.translatesAutoresizingMaskIntoConstraints = false
-        comentOn.centerYAnchor.constraint(equalTo: userProfileAvatarImageView.centerYAnchor).isActive = true
-        comentOn.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.trailingAnchor, constant: 3)
+        comentOnLabel.translatesAutoresizingMaskIntoConstraints = false
+        comentOnLabel.centerYAnchor.constraint(equalTo: userProfileAvatarImageView.centerYAnchor).isActive = true
+        comentOnLabel.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.trailingAnchor, constant: 3)
             .isActive = true
-        comentOn.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        comentOn.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        comentOnLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        comentOnLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
 
     private func makeDateLabelAnchor() {
-        datePost.translatesAutoresizingMaskIntoConstraints = false
-        datePost.topAnchor.constraint(equalTo: userProfileAvatarImageView.bottomAnchor, constant: 4).isActive = true
-        datePost.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.leadingAnchor).isActive = true
-        datePost.heightAnchor.constraint(equalToConstant: 15).isActive = true
-        datePost.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        datePostLabel.translatesAutoresizingMaskIntoConstraints = false
+        datePostLabel.topAnchor.constraint(equalTo: userProfileAvatarImageView.bottomAnchor, constant: 4)
+            .isActive = true
+        datePostLabel.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.leadingAnchor).isActive = true
+        datePostLabel.heightAnchor.constraint(equalToConstant: 15).isActive = true
+        datePostLabel.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }
 }
 
 // MARK: - UIScrollViewDelegate
 
-extension ContentCell: UIScrollViewDelegate {
+extension ContentPostViewCell: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        pageControll.currentPage = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
+        imagePageControll.currentPage = Int(scrollView.contentOffset.x / UIScreen.main.bounds.width)
     }
 }

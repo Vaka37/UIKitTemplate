@@ -1,10 +1,10 @@
-// RecomendationCell.swift
+// RecomendationViewCell.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Ячейка с реккомендациями
-final class RecomendationCell: UITableViewCell {
+/// Ячейка с рекомендациями
+final class RecomendationViewCell: UITableViewCell {
     // MARK: - Constants
 
     private enum Constants {
@@ -24,7 +24,7 @@ final class RecomendationCell: UITableViewCell {
         return scroll
     }()
 
-    private lazy var recomentadionLabel: UILabel = {
+    private var recomentadionLabel: UILabel = {
         let title = UILabel()
         title.text = Constants.titleCell
         title.textColor = .black
@@ -32,7 +32,7 @@ final class RecomendationCell: UITableViewCell {
         return title
     }()
 
-    private lazy var allButton: UIButton = {
+    private var allButton: UIButton = {
         let button = UIButton()
         button.setTitle(Constants.allButtonTitle, for: .normal)
         button.setTitleColor(.systemBlue, for: .normal)
@@ -41,19 +41,19 @@ final class RecomendationCell: UITableViewCell {
         return button
     }()
 
-    private lazy var overlayView: UIView = {
+    private var overlayView: UIView = {
         let overlayView = UIView()
         overlayView.backgroundColor = .white
         return overlayView
 
     }()
 
-    private lazy var avatarUserImageView: UIImageView = {
+    private var avatarUserImageView: UIImageView = {
         let image = UIImageView()
         return image
     }()
 
-    private lazy var loginUserLabel: UILabel = {
+    private var loginUserLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 10)
@@ -62,7 +62,7 @@ final class RecomendationCell: UITableViewCell {
         return label
     }()
 
-    private lazy var subscribeButton: UIButton = {
+    private var subscribeButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
@@ -72,19 +72,19 @@ final class RecomendationCell: UITableViewCell {
         return button
     }()
 
-    private lazy var overlaySecondView: UIView = {
+    private var overlaySecondView: UIView = {
         let overlayView = UIView()
         overlayView.backgroundColor = .white
         return overlayView
 
     }()
 
-    private lazy var avatarUserSecondImageView: UIImageView = {
+    private var avatarUserSecondImageView: UIImageView = {
         let image = UIImageView()
         return image
     }()
 
-    private lazy var loginUserSecondLabel: UILabel = {
+    private var loginUserSecondLabel: UILabel = {
         let label = UILabel()
         label.textColor = .gray
         label.font = UIFont.systemFont(ofSize: 10)
@@ -93,7 +93,7 @@ final class RecomendationCell: UITableViewCell {
         return label
     }()
 
-    private lazy var subscribeSecondButton: UIButton = {
+    private var subscribeSecondButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 8
         button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
@@ -105,11 +105,11 @@ final class RecomendationCell: UITableViewCell {
 
     // MARK: - Public Properties
 
-    func confiUI(data: [Recomendation]) {
-        avatarUserImageView.image = UIImage(named: data[0].avatar)
-        loginUserLabel.text = data[0].login
-        avatarUserSecondImageView.image = UIImage(named: data[1].avatar)
-        loginUserSecondLabel.text = data[1].login
+    func confiUI(recomendatios: [Recomendation]) {
+        avatarUserImageView.image = UIImage(named: recomendatios[0].avatar)
+        loginUserLabel.text = recomendatios[0].login
+        avatarUserSecondImageView.image = UIImage(named: recomendatios[1].avatar)
+        loginUserSecondLabel.text = recomendatios[1].login
         addSubview(contentScrollView)
         contentScrollView.addSubview(overlayView)
         contentScrollView.addSubview(recomentadionLabel)
@@ -139,7 +139,7 @@ final class RecomendationCell: UITableViewCell {
     }
 }
 
-extension RecomendationCell {
+extension RecomendationViewCell {
     private func createScrollViewAnchor() {
         contentScrollView.translatesAutoresizingMaskIntoConstraints = false
         contentScrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
