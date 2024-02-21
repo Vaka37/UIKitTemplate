@@ -219,7 +219,8 @@ extension ContentCell {
         postPictureSecondImageView.topAnchor.constraint(equalTo: contentScrollView.bottomAnchor, constant: 10)
             .isActive = true
         postPictureSecondImageView.widthAnchor.constraint(equalToConstant: frame.width).isActive = true
-        postPictureSecondImageView.leadingAnchor.constraint(equalTo: postPictureImageView.trailingAnchor).isActive = true
+        postPictureSecondImageView.leadingAnchor.constraint(equalTo: postPictureImageView.trailingAnchor)
+            .isActive = true
         postPictureSecondImageView.heightAnchor.constraint(equalToConstant: 239).isActive = true
     }
 
@@ -279,7 +280,8 @@ extension ContentCell {
 
     private func makeAvatarUserAnchor() {
         userProfileAvatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        userProfileAvatarImageView.topAnchor.constraint(equalTo: discriptionsLabel.bottomAnchor, constant: 4).isActive = true
+        userProfileAvatarImageView.topAnchor.constraint(equalTo: discriptionsLabel.bottomAnchor, constant: 4)
+            .isActive = true
         userProfileAvatarImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         userProfileAvatarImageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         userProfileAvatarImageView.widthAnchor.constraint(equalToConstant: 20).isActive = true
@@ -288,7 +290,8 @@ extension ContentCell {
     private func makeComentOnAnchor() {
         comentOn.translatesAutoresizingMaskIntoConstraints = false
         comentOn.centerYAnchor.constraint(equalTo: userProfileAvatarImageView.centerYAnchor).isActive = true
-        comentOn.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.trailingAnchor, constant: 3).isActive = true
+        comentOn.leadingAnchor.constraint(equalTo: userProfileAvatarImageView.trailingAnchor, constant: 3)
+            .isActive = true
         comentOn.heightAnchor.constraint(equalToConstant: 15).isActive = true
         comentOn.widthAnchor.constraint(equalToConstant: 150).isActive = true
     }

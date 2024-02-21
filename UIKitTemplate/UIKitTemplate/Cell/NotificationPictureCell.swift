@@ -77,7 +77,8 @@ extension NotificationPictureCell {
     private func makeDiscriptionAnchor() {
         discriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         discriptionLabel.topAnchor.constraint(equalTo: comentedImageView.topAnchor).isActive = true
-        discriptionLabel.trailingAnchor.constraint(equalTo: comentedImageView.leadingAnchor, constant: -24).isActive = true
+        discriptionLabel.trailingAnchor.constraint(equalTo: comentedImageView.leadingAnchor, constant: -24)
+            .isActive = true
         discriptionLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7).isActive = true
         discriptionLabel.bottomAnchor.constraint(equalTo: comentedImageView.bottomAnchor).isActive = true
     }

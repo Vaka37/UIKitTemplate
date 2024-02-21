@@ -4,8 +4,9 @@
 import Foundation
 import UIKit
 
-/// Рассширение для изменение шрифта
+/// Расширенние для валлидации строки
 public extension String {
+    /// Рассширение для изменение шрифта
     func setFont(_ font: UIFont, ofSubstring substring: String) -> NSMutableAttributedString {
         let range = (self as NSString).range(of: substring)
         let attributedString = NSMutableAttributedString(string: self)

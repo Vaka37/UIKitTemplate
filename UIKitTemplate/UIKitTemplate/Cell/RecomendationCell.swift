@@ -206,7 +206,8 @@ extension RecomendationCell {
 
     private func createSecondAvatarUserAnchor() {
         avatarUserSecondImageView.translatesAutoresizingMaskIntoConstraints = false
-        avatarUserSecondImageView.topAnchor.constraint(equalTo: overlaySecondView.topAnchor, constant: 15).isActive = true
+        avatarUserSecondImageView.topAnchor.constraint(equalTo: overlaySecondView.topAnchor, constant: 15)
+            .isActive = true
         avatarUserSecondImageView.centerXAnchor.constraint(equalTo: overlaySecondView.centerXAnchor).isActive = true
         avatarUserSecondImageView.widthAnchor.constraint(equalToConstant: 115).isActive = true
         avatarUserSecondImageView.heightAnchor.constraint(equalToConstant: 115).isActive = true
@@ -215,7 +216,8 @@ extension RecomendationCell {
     private func createSecondLoginUserAnchor() {
         loginUserSecondLabel.translatesAutoresizingMaskIntoConstraints = false
         loginUserSecondLabel.centerXAnchor.constraint(equalTo: avatarUserSecondImageView.centerXAnchor).isActive = true
-        loginUserSecondLabel.topAnchor.constraint(equalTo: avatarUserSecondImageView.bottomAnchor, constant: 5).isActive = true
+        loginUserSecondLabel.topAnchor.constraint(equalTo: avatarUserSecondImageView.bottomAnchor, constant: 5)
+            .isActive = true
         loginUserSecondLabel.widthAnchor.constraint(equalToConstant: 100).isActive = true
         loginUserSecondLabel.heightAnchor.constraint(equalToConstant: 12).isActive = true
     }
@@ -224,7 +226,8 @@ extension RecomendationCell {
         subscribeSecondButton.translatesAutoresizingMaskIntoConstraints = false
         subscribeSecondButton.leadingAnchor.constraint(equalTo: overlaySecondView.leadingAnchor, constant: 10)
             .isActive = true
-        subscribeSecondButton.topAnchor.constraint(equalTo: loginUserSecondLabel.bottomAnchor, constant: 9).isActive = true
+        subscribeSecondButton.topAnchor.constraint(equalTo: loginUserSecondLabel.bottomAnchor, constant: 9)
+            .isActive = true
         subscribeSecondButton.trailingAnchor.constraint(equalTo: overlaySecondView.trailingAnchor, constant: -10)
             .isActive = true
         subscribeSecondButton.heightAnchor.constraint(equalToConstant: 30).isActive = true

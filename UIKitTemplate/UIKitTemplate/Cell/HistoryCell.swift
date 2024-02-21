@@ -25,7 +25,7 @@ final class HistoryCell: UITableViewCell {
     // MARK: - Public Properties
 
     func setupCell(stories: [Stories]) {
-        addSubview(historyScrollView)
+        contentView.addSubview(historyScrollView)
         createStories(post: stories)
         makeHistoryScrollViewAnchor()
     }
@@ -33,6 +33,7 @@ final class HistoryCell: UITableViewCell {
     // MARK: - Private Properties
 
     private func createStories(post: Stories, constant: CGFloat) {
+        contentView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         let button = UIButton()
         button.setImage(UIImage(named: post.avatarName), for: .normal)
         let title = UILabel()
@@ -69,8 +70,8 @@ extension HistoryCell {
         historyScrollView.translatesAutoresizingMaskIntoConstraints = false
         historyScrollView.topAnchor.constraint(equalTo: topAnchor).isActive = true
         historyScrollView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
-        historyScrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
         historyScrollView.widthAnchor.constraint(equalToConstant: 600).isActive = true
+        historyScrollView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 
     private func makeAvatarAnchor(view: UIView, constant: CGFloat) {

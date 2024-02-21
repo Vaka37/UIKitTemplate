@@ -97,7 +97,8 @@ extension NotificationButtonCell {
     private func makeDiscriptionAnchor() {
         discriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         discriptionLabel.topAnchor.constraint(equalTo: avatarImageView.topAnchor).isActive = true
-        discriptionLabel.trailingAnchor.constraint(equalTo: subscribeButton.leadingAnchor, constant: -24).isActive = true
+        discriptionLabel.trailingAnchor.constraint(equalTo: subscribeButton.leadingAnchor, constant: -24)
+            .isActive = true
         discriptionLabel.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor, constant: 7).isActive = true
         discriptionLabel.heightAnchor.constraint(equalToConstant: 55).isActive = true
     }
