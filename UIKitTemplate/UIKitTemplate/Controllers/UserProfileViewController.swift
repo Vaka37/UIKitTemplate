@@ -172,7 +172,7 @@ extension UserProfileViewController: UITableViewDataSource {
                 withIdentifier: Constants.collectionViewIdentefire,
                 for: indexPath
             ) as? PublicationViewCell {
-                cell.setupCell()
+                cell.setupCell(items: rmLinkStorage.publicationPhoto)
             }
         }
         return UITableViewCell()

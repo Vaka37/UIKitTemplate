@@ -18,22 +18,12 @@ final class PublicationViewCell: UITableViewCell {
 
     // MARK: - Public Properties
 
-    func setupCell() {
+    func setupCell(items: [String]) {
+        publicationPhoto = items
         configureCell()
     }
 
-    var publicationPhoto: [String] = [
-        "pulication-1",
-        "pulication-2",
-        "pulication-3",
-        "pulication-4",
-        "pulication-3",
-        "pulication-2",
-        "pulication-4",
-        "pulication-2",
-        "pulication-3",
-        "pulication-1"
-    ]
+    var publicationPhoto: [String] = []
 
     // MARK: - Private Methods
 
