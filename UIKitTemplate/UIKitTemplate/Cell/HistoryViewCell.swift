@@ -24,6 +24,10 @@ final class HistoryViewCell: UITableViewCell {
 
     // MARK: - Public Properties
 
+    var transmisionImage: ((_: UIImage?) -> ())?
+
+    // MARK: - Public Methods
+
     func setupCell(stories: [Stories]) {
         contentView.addSubview(historyScrollView)
         createStories(post: stories)
@@ -36,6 +40,7 @@ final class HistoryViewCell: UITableViewCell {
         contentView.heightAnchor.constraint(equalToConstant: 90).isActive = true
         let button = UIButton()
         button.setImage(UIImage(named: post.avatarName), for: .normal)
+        button.addTarget(self, action: #selector(tapItem), for: .touchUpInside)
         let title = UILabel()
         title.textColor = .gray
         title.font = UIFont.systemFont(ofSize: 8)
@@ -54,6 +59,10 @@ final class HistoryViewCell: UITableViewCell {
             count += 73
         }
     }
+
+    @objc private func tapItem(sender: UIButton) {
+        transmisionImage?(sender.currentImage)
+    }
 }
 
 // MARK: - Layoyt
@@ -61,9 +70,8 @@ final class HistoryViewCell: UITableViewCell {
 extension HistoryViewCell {
     private func makeYouHistoryLabelAnchor(view: UIView, from: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -3).isActive = true
+        view.topAnchor.constraint(equalTo: from.bottomAnchor, constant: 3).isActive = true
         view.centerXAnchor.constraint(equalTo: from.centerXAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 
     private func makeHistoryScrollViewAnchor() {

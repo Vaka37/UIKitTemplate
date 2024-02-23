@@ -1,4 +1,4 @@
-// PostModel.swift
+// Post.swift
 // Copyright © RoadMap. All rights reserved.
 
 ///  наших постов
