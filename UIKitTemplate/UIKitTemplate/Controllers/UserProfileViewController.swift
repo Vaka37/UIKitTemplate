@@ -138,7 +138,7 @@ extension UserProfileViewController: UITableViewDataSource {
         case .stories:
             return 90
         case .publication:
-            return 300
+            return 500
         }
     }
 
