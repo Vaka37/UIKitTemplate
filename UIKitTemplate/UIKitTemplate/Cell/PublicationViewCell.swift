@@ -23,7 +23,9 @@ final class PublicationViewCell: UITableViewCell {
         configureCell()
     }
 
-    var publicationPhoto: [String] = []
+    // MARK: - Private Properties
+
+    private var publicationPhoto: [String] = []
 
     // MARK: - Private Methods
 

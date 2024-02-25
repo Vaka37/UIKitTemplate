@@ -5,7 +5,7 @@ import UIKit
 import WebKit
 
 /// Экран сайта
-class WebViewController: UIViewController, WKNavigationDelegate {
+final class WebViewController: UIViewController {
     // MARK: - Public Properties
 
     var url = ""
@@ -39,3 +39,7 @@ class WebViewController: UIViewController, WKNavigationDelegate {
         view.backgroundColor = .white
     }
 }
+
+// MARK: - WKNavigationDelegate
+
+extension WebViewController: WKNavigationDelegate {}

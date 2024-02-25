@@ -20,7 +20,7 @@ final class UserViewCell: UITableViewCell {
 
     // MARK: - Visual Components
 
-    private lazy var userAvatarImageView: UIImageView = {
+    private var userAvatarImageView: UIImageView = {
         let imageView = UIImageView()
         return imageView
     }()
@@ -35,17 +35,17 @@ final class UserViewCell: UITableViewCell {
         return button
     }()
 
-    private lazy var loginLabel = UILabel()
-    private lazy var employeLabel = UILabel()
-    private lazy var changeButton = UIButton()
-    private lazy var sharedProfile = UIButton()
-    private lazy var addButton = UIButton()
-    private lazy var countPost = UILabel()
-    private lazy var countSubscribers = UILabel()
-    private lazy var countSubscriptions = UILabel()
-    private lazy var postTextLabel = UILabel()
-    private lazy var subscribersTextLabel = UILabel()
-    private lazy var subscriptionsTextLabel = UILabel()
+    private var loginLabel = UILabel()
+    private var employeLabel = UILabel()
+    private var changeButton = UIButton()
+    private var sharedProfile = UIButton()
+    private var addButton = UIButton()
+    private var countPost = UILabel()
+    private var countSubscribers = UILabel()
+    private var countSubscriptions = UILabel()
+    private var postTextLabel = UILabel()
+    private var subscribersTextLabel = UILabel()
+    private var subscriptionsTextLabel = UILabel()
 
     // MARK: - Public Properties
 

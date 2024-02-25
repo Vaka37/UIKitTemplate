@@ -13,7 +13,7 @@ final class DetailStoriesViewController: UIViewController {
 
     // MARK: - Visual Components
 
-    private lazy var progressView: UIProgressView = {
+    private var progressView: UIProgressView = {
         let bar = UIProgressView()
         bar.progressViewStyle = .bar
         bar.trackTintColor = .gray
@@ -29,7 +29,7 @@ final class DetailStoriesViewController: UIViewController {
         return image
     }()
 
-    var storiesImageView: UIImageView = {
+    let storiesImageView: UIImageView = {
         let image = UIImageView()
         return image
     }()
@@ -51,7 +51,7 @@ final class DetailStoriesViewController: UIViewController {
         progressTimer = Timer.scheduledTimer(
             timeInterval: 1,
             target: self,
-            selector: #selector(timerMethod),
+            selector: #selector(staringTimer),
             userInfo: nil,
             repeats: true
         )
@@ -70,7 +70,7 @@ final class DetailStoriesViewController: UIViewController {
         makeProgresViewrAnchor()
     }
 
-    @objc func timerMethod() {
+    @objc func staringTimer() {
         if progressView.progress != 1.0 {
             progressView.progress += 0.1
         } else if progressView.progress == 1 {

@@ -1,7 +1,7 @@
 // Post.swift
 // Copyright © RoadMap. All rights reserved.
 
-///  наших постов
+/// Струткура наших постов
 struct Post {
     /// Аватар
     let avatarName: String

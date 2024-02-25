@@ -15,6 +15,7 @@ final class UserProfileViewController: UIViewController {
 
     // MARK: - RowsType
 
+    /// Энам с видами секций
     enum RowsType {
         /// Ячейка с пользователем
         case user
