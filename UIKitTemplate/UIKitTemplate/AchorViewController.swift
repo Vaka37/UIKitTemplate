@@ -1,4 +1,4 @@
-// SecondViewController.swift
+// AchorViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
@@ -88,7 +88,8 @@ extension AchorViewController {
         blackSquareView.translatesAutoresizingMaskIntoConstraints = false
         blackSquareView.topAnchor.constraint(equalTo: redSquareView.topAnchor, constant: -10).isActive = true
         blackSquareView.leadingAnchor.constraint(equalTo: yellowSquareView.leadingAnchor, constant: -10).isActive = true
-        blackSquareView.trailingAnchor.constraint(equalTo: yellowSquareView.trailingAnchor, constant: 10).isActive = true
+        blackSquareView.trailingAnchor.constraint(equalTo: yellowSquareView.trailingAnchor, constant: 10)
+            .isActive = true
         blackSquareView.bottomAnchor.constraint(equalTo: greenSquareView.bottomAnchor, constant: 10).isActive = true
     }
 }
