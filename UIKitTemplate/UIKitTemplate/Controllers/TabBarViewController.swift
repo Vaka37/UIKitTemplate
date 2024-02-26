@@ -28,6 +28,7 @@ final class MainTabBarController: UITabBarController {
     private func setUpTabBar() {
         tabBar.tintColor = .systemBlue
         tabBar.unselectedItemTintColor = .black
+
         viewControllers = [
             makeLentaViewController(),
             makeNotificationViewController(),
